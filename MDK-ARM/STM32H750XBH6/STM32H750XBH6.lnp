@@ -40,7 +40,7 @@
 "stm32h750xbh6\stm32h7xx_hal_uart_ex.o"
 "stm32h750xbh6\stm32h7xx_hal_dcmi.o"
 "stm32h750xbh6\system_stm32h7xx.o"
---library_type=microlib --strict --scatter "STM32H750XBH6\STM32H750XBH6.sct"
+--library_type=microlib --nodebug --strict --scatter "STM32H750XBH6\STM32H750XBH6.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "STM32H750XBH6.map" -o STM32H750XBH6\STM32H750XBH6.axf

@@ -207,8 +207,8 @@ int8_t DCMI_OV2640_Init(void)
 	{
 		printf ("OV2640 OK,ID:0x%X\r\n",Device_ID);		      // 匹配通过
 
-      OV2640_Config( OV2640_SVGA_Config );             		// 配置 SVGA模式  ------>  800*600，  最大帧率30帧
-//		OV2640_Config( OV2640_UXGA_Config );                  // 配置 UXGA模式  ------>  1600*1200，最大帧率15帧
+//      OV2640_Config( OV2640_SVGA_Config );             		// 配置 SVGA模式  ------>  800*600，  最大帧率30帧
+		OV2640_Config( OV2640_UXGA_Config );                  // 配置 UXGA模式  ------>  1600*1200，最大帧率15帧
 		
       OV2640_Set_Framesize(OV2640_Width,OV2640_Height);		// 设置OV2640输出的图像大小
 		OV2640_DCMI_Crop( Display_Width, Display_Height, OV2640_Width, OV2640_Height );	// 将OV2640输出图像裁剪成适应屏幕的大小
@@ -342,8 +342,8 @@ int8_t OV2640_DCMI_Crop(uint16_t Displey_XSize,uint16_t Displey_YSize,uint16_t S
 // 在设置为RGB565格式时，水平偏移，必须是奇数，否则画面色彩不正确，
 // 因为一个有效像素是2个字节，需要2个PCLK周期，所以必须从奇数位开始，不然数据会错乱，
 // 需要注意的是，寄存器值是从0开始算起的	！
-	DCMI_X_Offset = Sensor_XSize - Displey_XSize; // 实际计算过程为（Sensor_XSize - LCD_XSize）/2*2
-
+//	DCMI_X_Offset = Sensor_XSize - Displey_XSize; // 实际计算过程为（Sensor_XSize - LCD_XSize）/2*2
+DCMI_X_Offset = Sensor_XSize - Displey_XSize;
 // 计算垂直偏移，尽量让画面居中裁剪，该值代表的是行数，	
 	DCMI_Y_Offset = (Sensor_YSize - Displey_YSize)/2-1; // 寄存器值是从0开始算起的，所以要-1
 

@@ -95,8 +95,9 @@ int main(void)
 //	Touch_Init();				// 触摸屏初始化		
 
 	DCMI_OV2640_Init();   			 	// DCMI以及OV5640初始化
+	OV2640_Set_Brightness(-2); // 压低亮度，防止白内障
+	OV2640_Set_Contrast(0);    // 对比度先恢复默认
 	
-
 //>>>>DMA重要说明：
 //
 // 1.因为片外SDRAM速度慢，接收高分辨率图像带宽不够，而片内的SRAM不足以缓存一整张800*480的图像，
